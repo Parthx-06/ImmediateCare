@@ -1,0 +1,56 @@
+{
+  "patient_id": "PKR-2026-0714",
+  "name": "Rajesh Kumar",
+  "age": 58,
+  "gender": "Male",
+  "blood_group": "B+",
+  "weight_kg": 78,
+  "height_cm": 172,
+
+  "procedure": {
+    "name": "Percutaneous Coronary Intervention (Angioplasty)",
+    "date": "2026-07-14",
+    "details": "Two drug-eluting stents placed — one in Left Anterior Descending artery (LAD) and one in Right Coronary Artery (RCA)",
+    "hospital": "Apollo Heart Institute, Hyderabad",
+    "doctor": "Dr. Srinivas Rao, Senior Interventional Cardiologist",
+    "doctor_phone": "+91-9876543210",
+    "discharge_date": "2026-07-16"
+  },
+
+  "medical_history": [
+    "Hypertension (diagnosed 2018)",
+    "Type-2 Diabetes Mellitus (diagnosed 2020)",
+    "Hyperlipidemia (High Cholesterol)",
+    "Family history of coronary artery disease (father had MI at age 62)"
+  ],
+
+  "allergies": ["Penicillin", "Sulfa drugs"],
+
+  "current_vitals": {
+    "blood_pressure": "130/82 mmHg",
+    "heart_rate": "72 bpm",
+    "blood_sugar_fasting": "118 mg/dL",
+    "cholesterol_total": "210 mg/dL",
+    "ldl": "130 mg/dL",
+    "hdl": "42 mg/dL",
+    "ejection_fraction": "50%"
+  },
+
+  "emergency_contacts": [
+    {
+      "name": "Priya Kumar (Wife)",
+      "phone": "+91-9123456789"
+    },
+    {
+      "name": "Amit Kumar (Son)",
+      "phone": "+91-9234567890"
+    }
+  ],
+
+  "follow_up_schedule": [
+    { "date": "2026-07-28", "type": "Post-procedure checkup", "doctor": "Dr. Srinivas Rao" },
+    { "date": "2026-08-14", "type": "Blood work (CBC, Lipid Panel, HbA1c, Kidney Function)", "doctor": "Dr. Srinivas Rao" },
+    { "date": "2026-10-14", "type": "Stress test + Echo", "doctor": "Dr. Srinivas Rao" },
+    { "date": "2027-01-14", "type": "6-month follow-up angiography (if needed)", "doctor": "Dr. Srinivas Rao" }
+  ]
+}

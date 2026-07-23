@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Post-Angioplasty Patient Care Assistant — AI-powered medical guidance based on your doctor's instructions">
+    <title>HeartGuard AI — Patient Care Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <!-- API Key Modal -->
+    <div id="api-key-modal" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-icon">🔑</div>
+            <h2>Welcome to HeartGuard AI</h2>
+            <p>Enter your Groq API key to get started. You can get a free key from <a href="https://console.groq.com" target="_blank" rel="noopener">console.groq.com</a></p>
+            <div class="input-group">
+                <input type="password" id="api-key-input" placeholder="gsk_..." autocomplete="off">
+                <button id="save-key-btn" class="btn-primary">Connect</button>
+            </div>
+            <p id="key-error" class="error-text"></p>
+            <p class="modal-hint">Your key is stored only in this browser session</p>
+        </div>
+    </div>
+
+    <!-- Main Application -->
+    <div id="app" class="app-container hidden">
+        <!-- Sidebar — Patient Profile -->
+        <aside id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="logo-icon">❤️‍🩹</span>
+                    <span class="logo-text">HeartGuard <span class="logo-ai">AI</span></span>
+                </div>
+                <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle sidebar">☰</button>
+            </div>
+
+            <div class="patient-card">
+                <div class="patient-avatar" id="patient-avatar">RK</div>
+                <h3 id="patient-name">Loading...</h3>
+                <p class="patient-subtitle" id="patient-subtitle">Post-Angioplasty Care</p>
+            </div>
+
+            <div class="patient-details">
+                <div class="detail-row">
+                    <span class="detail-label">Age</span>
+                    <span class="detail-value" id="patient-age">—</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Blood Group</span>
+                    <span class="detail-value" id="patient-blood">—</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Procedure</span>
+                    <span class="detail-value" id="patient-procedure">—</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Doctor</span>
+                    <span class="detail-value" id="patient-doctor">—</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Next Follow-up</span>
+                    <span class="detail-value highlight" id="patient-followup">—</span>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h4>Allergies</h4>
+                <div class="allergy-tags" id="allergy-tags">—</div>
+            </div>
+
+            <div class="sidebar-section">
+                <h4>Emergency Contacts</h4>
+                <div id="emergency-contacts" class="emergency-contacts"></div>
+            </div>
+
+            <div class="sidebar-footer">
+                <button id="clear-history-btn" class="btn-secondary btn-small">
+                    🗑️ Clear Chat History
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="chat-main">
+            <!-- Chat Header -->
+            <header class="chat-header">
+                <div class="chat-header-left">
+                    <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Open menu">☰</button>
+                    <div>
+                        <h1>HeartGuard AI Assistant</h1>
+                        <p class="chat-header-subtitle">Your post-angioplasty care companion</p>
+                    </div>
+                </div>
+                <div class="chat-header-right">
+                    <div class="status-badge" id="status-badge">
+                        <span class="status-dot"></span>
+                        <span>Online</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Quick Action Buttons -->
+            <div class="quick-actions" id="quick-actions">
+                <button class="quick-btn" data-query="What medicines should I take today and at what times?">
+                    <span class="quick-icon">💊</span>
+                    <span>Medicine Schedule</span>
+                </button>
+                <button class="quick-btn" data-query="What foods can I eat and what should I avoid?">
+                    <span class="quick-icon">🥗</span>
+                    <span>Diet Plan</span>
+                </button>
+                <button class="quick-btn" data-query="How much walking and exercise can I do this week?">
+                    <span class="quick-icon">🚶</span>
+                    <span>Activity Guide</span>
+                </button>
+                <button class="quick-btn emergency" data-query="I am having chest pain right now, what should I do?">
+                    <span class="quick-icon">🚨</span>
+                    <span>Emergency Help</span>
+                </button>
+                <button class="quick-btn" data-query="When is my next follow-up appointment and what tests are needed?">
+                    <span class="quick-icon">📅</span>
+                    <span>Follow-up</span>
+                </button>
+                <button class="quick-btn" data-query="What are the side effects I should watch for from my medications?">
+                    <span class="quick-icon">⚠️</span>
+                    <span>Side Effects</span>
+                </button>
+            </div>
+
+            <!-- Chat Messages -->
+            <div class="chat-messages" id="chat-messages">
+                <!-- Welcome Message -->
+                <div class="message assistant-message fade-in">
+                    <div class="message-avatar">❤️‍🩹</div>
+                    <div class="message-content">
+                        <div class="message-bubble">
+                            <p>Namaste, <strong>Rajesh ji</strong>! 🙏</p>
+                            <p>I'm your HeartGuard AI assistant — here to help you with your post-angioplasty care based on <strong>Dr. Srinivas Rao's</strong> instructions.</p>
+                            <p>You can ask me about:</p>
+                            <ul>
+                                <li>💊 <strong>Medications</strong> — dosages, timings, side effects</li>
+                                <li>🥗 <strong>Diet</strong> — what to eat, what to avoid</li>
+                                <li>🚶 <strong>Activity</strong> — walking schedule, restrictions</li>
+                                <li>🚨 <strong>Emergencies</strong> — what to do if something feels wrong</li>
+                                <li>🩺 <strong>Symptoms</strong> — headache, dizziness, fatigue</li>
+                            </ul>
+                            <p>Use the quick buttons above or type your question below. I'm here 24/7! 😊</p>
+                        </div>
+                        <span class="message-time">Just now</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Input -->
+            <div class="chat-input-area">
+                <div class="chat-input-container">
+                    <textarea 
+                        id="chat-input" 
+                        placeholder="Ask about your medications, diet, symptoms..." 
+                        rows="1"
+                        maxlength="1000"
+                        aria-label="Type your message"
+                    ></textarea>
+                    <button id="send-btn" class="send-btn" aria-label="Send message" disabled>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                    </button>
+                </div>
+                <p class="input-disclaimer">HeartGuard AI provides information based on your doctor's instructions. For emergencies, call <strong>108</strong> immediately.</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

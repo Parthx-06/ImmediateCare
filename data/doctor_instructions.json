@@ -1,0 +1,400 @@
+{
+  "doctor": "Dr. Srinivas Rao",
+  "patient_id": "PKR-2026-0714",
+  "created_date": "2026-07-16",
+  "instructions": [
+    {
+      "id": "MED-001",
+      "category": "medication",
+      "priority": "critical",
+      "title": "Aspirin (Ecosprin 75mg)",
+      "content": "Take Aspirin 75mg once daily after lunch. This is a blood thinner that prevents blood clots from forming inside your stents. DO NOT stop this medicine without consulting Dr. Srinivas Rao. You must take this medicine lifelong. If you miss a dose, take it as soon as you remember on the same day. Do not double up doses. Side effects may include mild stomach upset — take it after food to reduce this.",
+      "tags": ["aspirin", "blood thinner", "antiplatelet", "daily medicine", "lunch", "lifelong"]
+    },
+    {
+      "id": "MED-002",
+      "category": "medication",
+      "priority": "critical",
+      "title": "Clopidogrel (Clavix 75mg)",
+      "content": "Take Clopidogrel 75mg once daily after dinner. This is the second blood thinner (dual antiplatelet therapy). You MUST take this for at least 12 months after stent placement — stopping early can cause stent thrombosis which is life-threatening. If you miss a dose, take it as soon as you remember. Inform any doctor or dentist that you are on this medication before any procedure. Side effects include easy bruising and minor bleeding from cuts which is normal.",
+      "tags": ["clopidogrel", "clavix", "blood thinner", "antiplatelet", "dinner", "12 months", "stent thrombosis"]
+    },
+    {
+      "id": "MED-003",
+      "category": "medication",
+      "priority": "high",
+      "title": "Atorvastatin (Atorva 40mg)",
+      "content": "Take Atorvastatin 40mg once daily at bedtime (night). This is a cholesterol-lowering medicine (statin). It helps reduce LDL cholesterol and stabilize plaques in your arteries. Take it at night as the body produces more cholesterol during sleep. Side effects may include mild muscle pain — report severe muscle pain or dark urine immediately. Do not eat grapefruit while on this medication.",
+      "tags": ["atorvastatin", "statin", "cholesterol", "bedtime", "night medicine", "LDL"]
+    },
+    {
+      "id": "MED-004",
+      "category": "medication",
+      "priority": "high",
+      "title": "Metoprolol (Met XL 25mg)",
+      "content": "Take Metoprolol 25mg once daily in the morning after breakfast. This is a beta-blocker that controls your heart rate and blood pressure. It reduces the workload on your heart. Do not stop this medicine suddenly as it can cause rebound high blood pressure or rapid heartbeat. Side effects may include mild fatigue and dizziness — these usually improve over time. Check your pulse before taking it; if heart rate is below 55 bpm, skip the dose and inform the doctor.",
+      "tags": ["metoprolol", "beta blocker", "blood pressure", "heart rate", "morning medicine", "breakfast"]
+    },
+    {
+      "id": "MED-005",
+      "category": "medication",
+      "priority": "high",
+      "title": "Ramipril (Cardace 5mg)",
+      "content": "Take Ramipril 5mg once daily in the morning. This is an ACE inhibitor that protects your heart and controls blood pressure. It helps the heart pump more efficiently after the procedure. Side effects may include dry cough — this is common and not harmful, but if it bothers you, inform Dr. Rao. Avoid potassium-rich supplements. Monitor blood pressure regularly.",
+      "tags": ["ramipril", "ACE inhibitor", "blood pressure", "heart protection", "morning medicine"]
+    },
+    {
+      "id": "MED-006",
+      "category": "medication",
+      "priority": "high",
+      "title": "Metformin (Glycomet 500mg)",
+      "content": "Take Metformin 500mg twice daily — once after breakfast and once after dinner. This controls your blood sugar levels. Take it with food to reduce stomach upset. Monitor your fasting blood sugar regularly — target is below 130 mg/dL. If you experience persistent diarrhea or nausea, inform the doctor. Do not consume alcohol while on this medication.",
+      "tags": ["metformin", "diabetes", "blood sugar", "twice daily", "breakfast", "dinner"]
+    },
+    {
+      "id": "MED-007",
+      "category": "medication",
+      "priority": "medium",
+      "title": "Pantoprazole (Pan 40mg)",
+      "content": "Take Pantoprazole 40mg once daily on an empty stomach, 30 minutes before breakfast. This protects your stomach lining from the blood thinners (Aspirin and Clopidogrel). Take it for at least 3 months. Swallow the tablet whole — do not crush or chew it.",
+      "tags": ["pantoprazole", "stomach protection", "acidity", "empty stomach", "morning", "before breakfast"]
+    },
+    {
+      "id": "MED-008",
+      "category": "medication",
+      "priority": "medium",
+      "title": "Sorbitrate 5mg (as needed / SOS)",
+      "content": "Keep Sorbitrate (Isosorbide dinitrate) 5mg tablets with you at all times. If you experience chest pain or tightness, place one tablet under your tongue (sublingual). Sit down before taking it as it can cause dizziness. If pain does not improve in 5 minutes, take another tablet. If pain persists after 3 tablets (15 minutes), call 108 or go to the nearest emergency room immediately. Do not take this if you have taken Sildenafil (Viagra) in the last 24 hours.",
+      "tags": ["sorbitrate", "chest pain", "emergency", "sublingual", "SOS", "nitrate"]
+    },
+
+    {
+      "id": "DIET-001",
+      "category": "diet",
+      "priority": "high",
+      "title": "Heart-Healthy Diet Overview",
+      "content": "Follow a heart-healthy diet. Eat plenty of fruits, vegetables, whole grains, lean proteins (fish, chicken breast, dal, tofu), and healthy fats (olive oil, nuts, seeds). Limit total calorie intake to around 1800-2000 calories per day. Eat 5-6 small meals instead of 3 large meals. Include fiber-rich foods like oats, barley, beans, and fruits. Drink 8-10 glasses of water daily.",
+      "tags": ["diet", "healthy eating", "calories", "meals", "fiber", "water"]
+    },
+    {
+      "id": "DIET-002",
+      "category": "diet",
+      "priority": "high",
+      "title": "Foods to AVOID",
+      "content": "AVOID these foods strictly: Deep fried foods (samosa, pakora, puri, french fries), red meat (mutton, beef, pork), organ meats (liver, brain), full-fat dairy (butter, ghee, cream, paneer made from full-fat milk), processed foods (chips, namkeen, instant noodles), sugary drinks (cola, packaged juices, sweetened tea), bakery items (cake, pastry, biscuits with trans fats), pickles and papads (high sodium), excessive salt (limit to less than 5 grams per day), egg yolks (limit to 3 per week). These foods increase cholesterol, blood pressure, and blood sugar.",
+      "tags": ["avoid", "fried food", "red meat", "processed food", "sugar", "salt", "cholesterol"]
+    },
+    {
+      "id": "DIET-003",
+      "category": "diet",
+      "priority": "high",
+      "title": "Foods RECOMMENDED to Eat",
+      "content": "RECOMMENDED foods: Oats and whole wheat roti for breakfast, green leafy vegetables (spinach, methi, palak), all fruits especially berries and citrus fruits, fish (salmon, sardines, mackerel — rich in Omega-3), skinless chicken breast (grilled or boiled), all dals and legumes (moong dal, masoor dal, chana), low-fat curd and buttermilk, nuts in moderation (almonds, walnuts — 5-6 pieces daily), olive oil or mustard oil for cooking, green tea without sugar, salads with every meal.",
+      "tags": ["recommended", "healthy food", "omega-3", "vegetables", "fruits", "dal", "nuts"]
+    },
+    {
+      "id": "DIET-004",
+      "category": "diet",
+      "priority": "medium",
+      "title": "Salt and Sugar Restrictions",
+      "content": "Limit salt intake to less than 5 grams (1 teaspoon) per day. Avoid adding extra salt at the table. Avoid papad, pickles, canned foods, and soy sauce as they are very high in sodium. For sugar: avoid white sugar, jaggery in excess, and sweets. Use artificial sweeteners if needed (Stevia is preferred). Monitor blood sugar — fasting should be below 130 mg/dL and post-meal below 180 mg/dL.",
+      "tags": ["salt", "sodium", "sugar", "restriction", "diabetes", "blood pressure"]
+    },
+    {
+      "id": "DIET-005",
+      "category": "diet",
+      "priority": "medium",
+      "title": "Alcohol and Caffeine",
+      "content": "Avoid alcohol completely for at least 3 months after the procedure. After that, if you wish to drink, limit to a maximum of 1 small drink per day (one glass of wine or one small peg). Avoid hard liquor. For caffeine: limit to 1-2 cups of tea or coffee per day. Avoid energy drinks completely. Green tea without sugar is a good alternative.",
+      "tags": ["alcohol", "caffeine", "coffee", "tea", "drinks", "beverages"]
+    },
+    {
+      "id": "DIET-006",
+      "category": "diet",
+      "priority": "medium",
+      "title": "Can I eat rice and biryani?",
+      "content": "You can eat rice in moderation — prefer brown rice over white rice. Limit to one small bowl (1 katori) per meal. Avoid biryani as it typically contains excess oil, ghee, fried onions, and often uses fatty cuts of meat. If you crave biryani, you can have a small portion of homemade chicken biryani made with brown rice, minimal oil, and lean chicken breast — but not more than once a week. Avoid restaurant biryani completely.",
+      "tags": ["rice", "biryani", "carbs", "brown rice", "restaurant food"]
+    },
+
+    {
+      "id": "ACT-001",
+      "category": "activity",
+      "priority": "high",
+      "title": "Walking Schedule After Angioplasty",
+      "content": "Walking is the best exercise after angioplasty. Follow this schedule: Week 1-2 (current): Walk slowly for 10-15 minutes, twice a day on flat ground. Week 3-4: Increase to 20-30 minutes, twice a day at a comfortable pace. Month 2: Walk 30-45 minutes daily at a moderate pace. Month 3 onwards: Walk 45-60 minutes daily at a brisk pace. Always warm up for 5 minutes before walking. Stop immediately if you feel chest pain, severe breathlessness, or dizziness. Best times to walk are early morning (6-7 AM) and evening (5-6 PM). Avoid walking in extreme heat or cold.",
+      "tags": ["walking", "exercise", "schedule", "week 1", "week 2", "month", "physical activity"]
+    },
+    {
+      "id": "ACT-002",
+      "category": "activity",
+      "priority": "high",
+      "title": "Activity Restrictions — First 2 Weeks",
+      "content": "For the first 2 weeks after angioplasty: Do NOT lift anything heavier than 5 kg (like a heavy bag or bucket of water). Do NOT push or pull heavy objects. Do NOT climb more than one flight of stairs at a time — rest for 2-3 minutes between floors. Do NOT do any strenuous housework (mopping, scrubbing, lifting furniture). Do NOT ride a two-wheeler. You CAN do light activities like eating at the dining table, walking around the house, light reading, watching TV, and gentle stretching.",
+      "tags": ["restrictions", "lifting", "stairs", "housework", "first 2 weeks", "weight limit"]
+    },
+    {
+      "id": "ACT-003",
+      "category": "activity",
+      "priority": "medium",
+      "title": "Driving After Angioplasty",
+      "content": "Do NOT drive a car for at least 1 week after the procedure. After 1 week, you may drive short distances (less than 30 minutes) on familiar, non-stressful routes. Avoid highway driving for 2 weeks. For two-wheelers: avoid riding for at least 4 weeks as the vibration and posture can affect the groin/wrist catheter site. Always carry your medicines and Sorbitrate when traveling.",
+      "tags": ["driving", "car", "two-wheeler", "travel", "commute"]
+    },
+    {
+      "id": "ACT-004",
+      "category": "activity",
+      "priority": "medium",
+      "title": "Return to Work",
+      "content": "If you have a desk job: you can return to work after 2 weeks with your doctor's approval. Start with half-days for the first week. If your job involves physical labor or heavy lifting: wait at least 6-8 weeks and get clearance from Dr. Srinivas Rao. Avoid high-stress situations at work initially. Take short breaks every 1-2 hours to walk around. Do not work overtime for the first month.",
+      "tags": ["work", "office", "desk job", "physical labor", "return to work", "job"]
+    },
+    {
+      "id": "ACT-005",
+      "category": "activity",
+      "priority": "medium",
+      "title": "Sexual Activity After Angioplasty",
+      "content": "You can resume sexual activity 1-2 weeks after angioplasty, once you can climb two flights of stairs without chest pain or breathlessness. Start gently. Avoid positions that put excessive strain on your arms or chest. If you experience chest pain during or after sexual activity, stop and take Sorbitrate. Do NOT take Sildenafil (Viagra) or similar medications — they interact dangerously with your heart medicines (especially nitrates like Sorbitrate). Discuss any concerns with Dr. Rao confidentially.",
+      "tags": ["sexual activity", "intimacy", "viagra", "sildenafil", "physical activity"]
+    },
+    {
+      "id": "ACT-006",
+      "category": "activity",
+      "priority": "medium",
+      "title": "Exercise Beyond Walking",
+      "content": "After 4-6 weeks with doctor's approval: you can start light yoga (avoid inverted poses and breath-holding), cycling on a stationary bike at low resistance, and swimming (once catheter wound is fully healed). After 3 months with stress test clearance: you can start light jogging, moderate cycling, and light weight training (under 10 kg). NEVER do: heavy weight lifting, competitive sports, sprinting, or any exercise that causes you to hold your breath (Valsalva maneuver).",
+      "tags": ["exercise", "yoga", "cycling", "swimming", "gym", "weight training", "sports"]
+    },
+
+    {
+      "id": "WOUND-001",
+      "category": "wound_care",
+      "priority": "high",
+      "title": "Catheter Site Care (Right Wrist / Groin)",
+      "content": "Keep the catheter insertion site (right wrist) clean and dry for 48 hours after the procedure. After 48 hours, you can remove the bandage and wash gently with mild soap and water. Do not scrub the area. Pat dry with a clean towel. Do not apply any cream, lotion, or ointment unless prescribed. It is normal to have a small bruise (1-2 inches) around the site — this will fade in 1-2 weeks. Do NOT carry heavy weights with the right hand for 1 week.",
+      "tags": ["wound", "catheter", "wrist", "bandage", "bruise", "wound care"]
+    },
+    {
+      "id": "WOUND-002",
+      "category": "wound_care",
+      "priority": "high",
+      "title": "Signs of Wound Infection — When to Worry",
+      "content": "Contact Dr. Srinivas Rao immediately if you notice any of these at the catheter site: Increasing redness or swelling that gets worse after day 2, pus or foul-smelling discharge, fever above 100.4°F (38°C), increasing pain at the site instead of decreasing, a growing lump or hardness under the skin, bleeding that doesn't stop with 10 minutes of firm pressure. These could indicate infection or a pseudoaneurysm and need urgent medical attention.",
+      "tags": ["infection", "wound", "fever", "pus", "swelling", "bleeding", "emergency"]
+    },
+    {
+      "id": "WOUND-003",
+      "category": "wound_care",
+      "priority": "medium",
+      "title": "Bathing After Angioplasty",
+      "content": "You can take a sponge bath on the day of discharge. After 48 hours, you can take a normal shower. Avoid very hot water. Do not soak in a bathtub, swimming pool, or hot tub for at least 1 week to prevent infection at the catheter site. Keep the area dry after bathing. You can resume normal bathing after 1 week when the wound has healed.",
+      "tags": ["bathing", "shower", "hygiene", "swimming pool", "hot tub"]
+    },
+
+    {
+      "id": "EMRG-001",
+      "category": "emergency",
+      "priority": "critical",
+      "title": "Chest Pain Emergency Protocol",
+      "content": "If you experience chest pain, tightness, pressure, or squeezing sensation: 1) STOP all activity and SIT or LIE DOWN immediately. 2) Place one Sorbitrate 5mg tablet under your tongue. 3) If pain doesn't improve in 5 minutes, take a second Sorbitrate. 4) If pain persists after 3 tablets (15 minutes total), CALL 108 AMBULANCE IMMEDIATELY or go to the nearest hospital emergency. 5) Chew one Aspirin 325mg tablet while waiting for the ambulance. 6) Do NOT drive yourself to the hospital. 7) Call your wife Priya (+91-9123456789) or son Amit (+91-9234567890). This could be a heart attack or stent blockage — every minute counts!",
+      "tags": ["chest pain", "heart attack", "emergency", "sorbitrate", "ambulance", "108", "critical"]
+    },
+    {
+      "id": "EMRG-002",
+      "category": "emergency",
+      "priority": "critical",
+      "title": "Stroke Warning Signs (FAST)",
+      "content": "Blood thinners reduce stroke risk but be aware of these warning signs. Remember FAST: F-Face: Is one side of the face drooping? Ask the person to smile. A-Arms: Can they raise both arms? Does one drift downward? S-Speech: Is speech slurred or strange? Ask them to repeat a simple phrase. T-Time: If any of these signs appear, call 108 IMMEDIATELY. Time is critical — treatment within 4.5 hours can save brain tissue. Also watch for: sudden severe headache with no known cause, sudden confusion, sudden trouble seeing in one or both eyes, sudden trouble walking or loss of balance.",
+      "tags": ["stroke", "FAST", "emergency", "face drooping", "speech", "brain", "ambulance"]
+    },
+    {
+      "id": "EMRG-003",
+      "category": "emergency",
+      "priority": "critical",
+      "title": "Severe Bleeding Emergency",
+      "content": "Because you are on dual blood thinners (Aspirin + Clopidogrel), you may bleed more easily. For minor cuts: Apply firm pressure with a clean cloth for at least 10-15 minutes. Most minor bleeding will stop. For SERIOUS bleeding situations — call Dr. Rao or go to ER immediately: Blood in urine (red or dark brown), blood in stool (red blood or black tarry stool), vomiting blood or coffee-ground-like material, coughing up blood, nosebleed that won't stop after 20 minutes of pinching, severe bleeding from any wound, unexplained large bruises appearing on the body. Do NOT stop your blood thinners on your own — let the doctor decide.",
+      "tags": ["bleeding", "blood", "blood thinner", "urine", "stool", "nosebleed", "emergency"]
+    },
+    {
+      "id": "EMRG-004",
+      "category": "emergency",
+      "priority": "high",
+      "title": "When to Call Dr. Srinivas Rao",
+      "content": "Call Dr. Srinivas Rao (+91-9876543210) during office hours (9 AM - 6 PM) for: Persistent headache that doesn't improve with Paracetamol, unusual fatigue or weakness that is getting worse, persistent dry cough (possible side effect of Ramipril), swelling in feet or ankles, weight gain of more than 2 kg in a week (could indicate fluid retention), dizziness or feeling faint frequently, any new symptoms that worry you, difficulty sleeping, mood changes or feeling depressed. For after-hours emergencies, go to Apollo Heart Institute Emergency: +91-40-23607777.",
+      "tags": ["call doctor", "phone", "office hours", "symptoms", "side effects", "follow up"]
+    },
+
+    {
+      "id": "SYM-001",
+      "category": "symptom_management",
+      "priority": "high",
+      "title": "Headache After Angioplasty",
+      "content": "Headache is common after angioplasty and can be caused by: stress, medication side effects (especially Sorbitrate and Ramipril), dehydration, or blood pressure changes. What to do: Take Paracetamol (Crocin/Dolo) 500mg — this is SAFE with your heart medicines. Drink plenty of water. Rest in a quiet, dark room. Check your blood pressure. DO NOT take Ibuprofen (Brufen), Diclofenac, or any NSAID pain killers — these interfere with Aspirin and Clopidogrel and increase heart risk. If headache is severe, sudden, or 'worst headache of your life', go to the ER immediately.",
+      "tags": ["headache", "pain", "paracetamol", "crocin", "NSAID", "ibuprofen", "pain killer"]
+    },
+    {
+      "id": "SYM-002",
+      "category": "symptom_management",
+      "priority": "high",
+      "title": "Dizziness or Lightheadedness",
+      "content": "Dizziness can occur due to blood pressure medications (Metoprolol, Ramipril) or dehydration. What to do: Sit or lie down immediately to prevent falls. Drink a glass of water. Check your blood pressure — if below 90/60 mmHg, skip the next dose of Metoprolol or Ramipril and inform Dr. Rao. Stand up slowly from sitting or lying position (take 30 seconds). If dizziness is accompanied by chest pain, fainting, or severe headache, call 108 immediately.",
+      "tags": ["dizziness", "lightheaded", "blood pressure", "low BP", "fainting", "standing"]
+    },
+    {
+      "id": "SYM-003",
+      "category": "symptom_management",
+      "priority": "medium",
+      "title": "Easy Bruising and Minor Bleeding",
+      "content": "Easy bruising and minor bleeding (from gums, small cuts, etc.) is a normal side effect of your blood thinning medicines (Aspirin and Clopidogrel). This is expected and usually not dangerous. Tips: Use a soft toothbrush to reduce gum bleeding. Use an electric razor instead of a blade to avoid cuts. Be careful with sharp objects in the kitchen. Apply firm pressure for 10-15 minutes on any cuts. If you notice large unexplained bruises, blood in urine or stool, or bleeding that won't stop — contact Dr. Rao immediately.",
+      "tags": ["bruising", "bleeding", "gums", "cuts", "blood thinner", "side effect"]
+    },
+    {
+      "id": "SYM-004",
+      "category": "symptom_management",
+      "priority": "high",
+      "title": "Shortness of Breath",
+      "content": "Mild shortness of breath during exertion is normal in the first few weeks after angioplasty. However, watch for: Breathlessness at rest or while lying flat (use 2 pillows to elevate your head), breathlessness that is getting worse day by day, waking up at night gasping for air, inability to walk the same distance you could yesterday without getting breathless, swelling in feet/ankles along with breathlessness. If any of these occur, call Dr. Srinivas Rao as it could indicate heart failure or fluid buildup. If severe, go to the ER.",
+      "tags": ["breathlessness", "shortness of breath", "breathing difficulty", "heart failure", "lungs"]
+    },
+    {
+      "id": "SYM-005",
+      "category": "symptom_management",
+      "priority": "medium",
+      "title": "Leg Pain or Swelling",
+      "content": "Some leg pain at the catheter site (if groin approach was used) is normal for a few days. However, be concerned if: One leg becomes significantly more swollen than the other (could be DVT — deep vein thrombosis), there is severe pain in the calf that worsens when walking, the leg becomes red, warm, and tender, you cannot move the toes on the affected leg. For mild leg pain: gentle walking helps, elevate legs when resting, avoid standing for long periods. If you suspect DVT symptoms, contact Dr. Rao immediately as this needs urgent treatment.",
+      "tags": ["leg pain", "swelling", "DVT", "calf pain", "groin", "catheter site"]
+    },
+    {
+      "id": "SYM-006",
+      "category": "symptom_management",
+      "priority": "medium",
+      "title": "Stomach Upset and Nausea",
+      "content": "Stomach upset, mild nausea, or acidity can occur due to Aspirin, Clopidogrel, or Metformin. What to do: Always take Pantoprazole 30 minutes before breakfast as prescribed — this protects your stomach. Take Aspirin and other medicines after food, not on empty stomach. Eat small, frequent meals instead of large meals. Avoid spicy food, fried food, and citrus fruits on an empty stomach. If nausea is severe or you are vomiting repeatedly, contact Dr. Rao. If you see blood in vomit (red or coffee-ground colored), go to ER immediately.",
+      "tags": ["stomach", "nausea", "vomiting", "acidity", "gastritis", "stomach pain"]
+    },
+    {
+      "id": "SYM-007",
+      "category": "symptom_management",
+      "priority": "medium",
+      "title": "Fatigue and Tiredness",
+      "content": "Feeling tired and low on energy is very common for 2-4 weeks after angioplasty. This is caused by: the procedure itself, medications (especially Metoprolol), your body healing, emotional stress, and disrupted sleep. What helps: Get 7-8 hours of sleep at night. Take a short afternoon nap (30-45 minutes) if needed. Eat nutritious food regularly. Stay hydrated. Do light walking as prescribed. If fatigue is extreme, you feel too weak to get out of bed, or it is getting worse after 2 weeks instead of improving, inform Dr. Rao.",
+      "tags": ["fatigue", "tired", "weakness", "energy", "sleep", "rest"]
+    },
+    {
+      "id": "SYM-008",
+      "category": "symptom_management",
+      "priority": "medium",
+      "title": "Muscle Pain from Statin Medication",
+      "content": "Atorvastatin (cholesterol medicine) can sometimes cause muscle pain, especially in the thighs, calves, or upper arms. Mild muscle aches are common and usually tolerable. What helps: Gentle stretching, warm compresses, adequate hydration. IMPORTANT: Contact Dr. Rao if you experience severe muscle pain, muscle weakness (difficulty climbing stairs or lifting arms), dark brown urine, or fever with muscle pain. These could indicate a rare but serious condition called rhabdomyolysis. Do NOT stop the medicine on your own — the doctor may adjust the dose or switch to a different statin.",
+      "tags": ["muscle pain", "statin", "atorvastatin", "rhabdomyolysis", "side effect"]
+    },
+
+    {
+      "id": "LIFE-001",
+      "category": "lifestyle",
+      "priority": "critical",
+      "title": "Smoking Cessation",
+      "content": "If you smoke, you MUST quit immediately. Smoking is the single most dangerous thing for your stents and heart. Smoking causes blood clots, damages artery walls, reduces oxygen to the heart, and can cause stent blockage. Even 1-2 cigarettes per day significantly increases your risk of another heart attack. Also avoid passive smoking (being around smokers), hookah, e-cigarettes, and chewing tobacco (gutka, pan masala). If you need help quitting, ask Dr. Rao about nicotine patches or counseling.",
+      "tags": ["smoking", "cigarette", "tobacco", "quit smoking", "gutka", "hookah", "e-cigarette"]
+    },
+    {
+      "id": "LIFE-002",
+      "category": "lifestyle",
+      "priority": "high",
+      "title": "Stress Management",
+      "content": "Stress raises blood pressure and heart rate, increasing strain on your heart. Stress management is as important as your medicines. Techniques: Practice deep breathing (5-5-5: breathe in for 5 seconds, hold for 5, breathe out for 5) for 10 minutes daily. Listen to calming music or devotional songs. Spend time with family and friends. Avoid watching stressful news for long periods. Practice gratitude — write down 3 good things each day. If you feel anxious, depressed, or overwhelmed, talk to your family and inform Dr. Rao — these feelings are very common after heart procedures and are treatable.",
+      "tags": ["stress", "anxiety", "depression", "mental health", "breathing", "relaxation", "meditation"]
+    },
+    {
+      "id": "LIFE-003",
+      "category": "lifestyle",
+      "priority": "medium",
+      "title": "Sleep Hygiene",
+      "content": "Good sleep is essential for heart recovery. Aim for 7-8 hours of sleep per night. Tips: Go to bed and wake up at the same time daily. Keep your bedroom cool, dark, and quiet. Avoid screen time (phone, TV) 1 hour before bed. Avoid caffeine after 2 PM. It is okay to use 2 pillows to keep your head elevated — this helps if you feel breathless while lying flat. If you have persistent difficulty sleeping, inform Dr. Rao — he may prescribe a short-term sleep aid.",
+      "tags": ["sleep", "insomnia", "rest", "bedtime", "night", "sleeping difficulty"]
+    },
+    {
+      "id": "LIFE-004",
+      "category": "lifestyle",
+      "priority": "medium",
+      "title": "Travel Guidelines",
+      "content": "For the first 2 weeks: avoid long-distance travel. Short car rides (under 1 hour) are fine. After 2 weeks: you can travel by car or train for longer distances. Take breaks every 2 hours to walk around. After 4 weeks: you can fly. Inform the airline about your medical condition. Carry all medications in your hand luggage with a prescription copy. Always carry a medical summary card mentioning your stents, medications, and Dr. Rao's contact. Stay hydrated during travel. Wear compression socks on long flights to prevent blood clots.",
+      "tags": ["travel", "flying", "car", "train", "long distance", "airplane", "vacation"]
+    },
+    {
+      "id": "LIFE-005",
+      "category": "lifestyle",
+      "priority": "medium",
+      "title": "Weather and Temperature Precautions",
+      "content": "Extreme heat and cold can put stress on your heart. In hot weather (summer): Avoid going out between 11 AM - 4 PM. Stay hydrated — drink water even if not thirsty. Wear loose, light cotton clothing. Walk early morning or evening. In cold weather (winter): Cover yourself well, especially head and chest. Avoid sudden exposure to cold air. Morning walks can be shifted to after 8 AM when it's warmer. Cold weather can constrict blood vessels and raise blood pressure.",
+      "tags": ["weather", "heat", "cold", "summer", "winter", "temperature"]
+    },
+
+    {
+      "id": "MED-SCHED-001",
+      "category": "medication_schedule",
+      "priority": "high",
+      "title": "Complete Daily Medicine Schedule",
+      "content": "Your complete daily medicine schedule: EARLY MORNING (empty stomach, 30 min before breakfast): Pantoprazole 40mg. AFTER BREAKFAST: Metoprolol 25mg, Ramipril 5mg, Metformin 500mg. AFTER LUNCH: Aspirin 75mg. AFTER DINNER: Clopidogrel 75mg, Metformin 500mg. AT BEDTIME: Atorvastatin 40mg. SOS (as needed): Sorbitrate 5mg (under tongue for chest pain). Keep a daily medicine box organizer to avoid missing doses. Set alarms on your phone for each medicine time.",
+      "tags": ["medicine schedule", "daily routine", "morning", "breakfast", "lunch", "dinner", "bedtime", "timetable"]
+    },
+    {
+      "id": "MED-SCHED-002",
+      "category": "medication_schedule",
+      "priority": "high",
+      "title": "What If I Miss a Dose?",
+      "content": "If you miss a dose: For most medicines (Aspirin, Clopidogrel, Atorvastatin, Ramipril): Take it as soon as you remember on the same day. If it's almost time for the next dose, skip the missed one — never double up. For Metformin: Take with your next meal. For Metoprolol: If you remember within 4 hours, take it. If more than 4 hours, skip and take the next scheduled dose. For Pantoprazole: Take it whenever you remember, preferably before a meal. CRITICAL: Never stop Aspirin or Clopidogrel on your own — missing multiple doses can cause stent thrombosis.",
+      "tags": ["missed dose", "forgot medicine", "skip dose", "medication adherence"]
+    },
+
+    {
+      "id": "FOLLOWUP-001",
+      "category": "follow_up",
+      "priority": "high",
+      "title": "Follow-Up Appointments and Tests",
+      "content": "Your follow-up schedule: 1) July 28, 2026: First post-procedure checkup with Dr. Srinivas Rao — he will examine the catheter site, review your symptoms, and adjust medications if needed. 2) August 14, 2026: Blood work — Complete Blood Count (CBC), Lipid Panel (cholesterol levels), HbA1c (3-month diabetes average), Kidney Function Test (creatinine). Come fasting for 12 hours. 3) October 14, 2026: Treadmill Stress Test + Echocardiography — to assess heart function and ensure stents are working well. 4) January 14, 2027: 6-month review — possible repeat angiography if symptoms recur. Mark these dates in your calendar and DO NOT miss them.",
+      "tags": ["follow up", "appointment", "checkup", "blood test", "stress test", "echo", "angiography"]
+    },
+    {
+      "id": "FOLLOWUP-002",
+      "category": "follow_up",
+      "priority": "medium",
+      "title": "Daily Monitoring at Home",
+      "content": "Monitor and record these daily: 1) Blood Pressure: Check twice daily (morning before medicines and evening). Target: below 130/80 mmHg. 2) Heart Rate (Pulse): Check morning before Metoprolol. Target: 60-80 bpm. If below 55, skip Metoprolol and call Dr. Rao. 3) Blood Sugar: Check fasting blood sugar every alternate day. Target: 100-130 mg/dL. Check post-meal sugar twice a week. Target: below 180 mg/dL. 4) Weight: Weigh yourself every morning. If you gain more than 2 kg in a week, call Dr. Rao. 5) Maintain a diary of these readings to show at follow-up visits.",
+      "tags": ["monitoring", "blood pressure", "heart rate", "blood sugar", "weight", "diary", "home care"]
+    },
+
+    {
+      "id": "FAQ-001",
+      "category": "faq",
+      "priority": "medium",
+      "title": "Can I Do Puja and Religious Activities?",
+      "content": "Yes, you can perform puja, prayers, and religious activities at home. Sitting for meditation and prayers is actually good for stress relief. However, for the first 2 weeks: avoid going to crowded temples as there's a risk of infection and physical strain. Avoid sitting on the floor cross-legged for extended periods as it can affect circulation. You can sit on a chair for puja. After 2 weeks, you can visit temples but avoid long queues and overcrowding.",
+      "tags": ["puja", "prayer", "temple", "religious", "meditation", "sitting"]
+    },
+    {
+      "id": "FAQ-002",
+      "category": "faq",
+      "priority": "medium",
+      "title": "Can I Use Stairs at Home?",
+      "content": "Yes, but carefully. For the first 2 weeks: Limit stair climbing to once or twice per day. Go slowly — one step at a time. Rest for 2-3 minutes if your bedroom is upstairs before continuing activities. Hold the railing for support. If possible, temporarily shift your bedroom to the ground floor. After 2 weeks: You can use stairs more freely but still avoid rushing. By 4 weeks: Normal stair use should be fine. If you feel chest pain or severe breathlessness while climbing stairs at any point, stop and take Sorbitrate.",
+      "tags": ["stairs", "climbing", "home", "floors", "levels"]
+    },
+    {
+      "id": "FAQ-003",
+      "category": "faq",
+      "priority": "low",
+      "title": "Can I Watch Cricket or Exciting TV?",
+      "content": "You can watch cricket and TV, but be mindful of emotional excitement. Extreme excitement or stress from watching a tense match can raise your heart rate and blood pressure. Tips: Watch matches in a relaxed setting. Avoid getting too emotionally invested in close finishes during the first few weeks. If you feel your heart racing or chest tightness during an exciting moment, turn off the TV and practice deep breathing. Overall, light entertainment is encouraged as it helps with recovery and mood.",
+      "tags": ["cricket", "TV", "entertainment", "excitement", "stress", "watching"]
+    },
+    {
+      "id": "FAQ-004",
+      "category": "faq",
+      "priority": "medium",
+      "title": "Dental Procedures and Other Surgeries",
+      "content": "IMPORTANT: Before any dental procedure (tooth extraction, root canal, cleaning) or any surgery, you MUST inform the dentist/surgeon that you are on Aspirin and Clopidogrel (blood thinners). They may need to take special precautions to control bleeding. Do NOT stop your blood thinners without consulting Dr. Srinivas Rao first. Usually, minor dental procedures can be done while on blood thinners. For major surgeries, Dr. Rao will advise whether to temporarily adjust your medicines.",
+      "tags": ["dental", "dentist", "surgery", "tooth", "extraction", "blood thinner", "procedure"]
+    }
+  ]
+}
