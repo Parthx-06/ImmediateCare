@@ -5,17 +5,13 @@
 
 // ─── State ──────────────────────────────────────────────────────────────────────
 
-const API_BASE = '';  // Same origin
+const API_BASE = '';  
 let isLoading = false;
 let patientData = null;
 
 // ─── DOM Elements ───────────────────────────────────────────────────────────────
 
 const elements = {
-    apiKeyModal: document.getElementById('api-key-modal'),
-    apiKeyInput: document.getElementById('api-key-input'),
-    saveKeyBtn: document.getElementById('save-key-btn'),
-    keyError: document.getElementById('key-error'),
     app: document.getElementById('app'),
     chatMessages: document.getElementById('chat-messages'),
     chatInput: document.getElementById('chat-input'),
@@ -31,7 +27,6 @@ const elements = {
 // ─── Initialization ─────────────────────────────────────────────────────────────
 
 document.addEventListener('DOMContentLoaded', () => {
-    initApiKeyModal();
     initChatInput();
     initQuickActions();
     initSidebar();
@@ -39,76 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
     loadPatientProfile();
     loadChatHistory();
 });
-
-// ─── API Key Modal ──────────────────────────────────────────────────────────────
-
-function initApiKeyModal() {
-    // Check if key is already set by checking a simple endpoint
-    checkApiKeyStatus();
-
-    elements.saveKeyBtn.addEventListener('click', saveApiKey);
-    elements.apiKeyInput.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') saveApiKey();
-    });
-}
-
-async function checkApiKeyStatus() {
-    try {
-        const res = await fetch(`${API_BASE}/api/patient`);
-        if (res.ok) {
-            // Backend is running — check if key is set by trying a test chat
-            const testRes = await fetch(`${API_BASE}/api/chat`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ query: 'test' })
-            });
-            const data = await testRes.json();
-            if (!data.error) {
-                showApp();
-            }
-        }
-    } catch (e) {
-        // Backend not running, show modal anyway
-    }
-}
-
-async function saveApiKey() {
-    const key = elements.apiKeyInput.value.trim();
-    if (!key) {
-        elements.keyError.textContent = 'Please enter an API key';
-        return;
-    }
-
-    elements.saveKeyBtn.disabled = true;
-    elements.saveKeyBtn.textContent = 'Connecting...';
-    elements.keyError.textContent = '';
-
-    try {
-        const res = await fetch(`${API_BASE}/api/set-key`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ api_key: key })
-        });
-
-        const data = await res.json();
-
-        if (res.ok) {
-            showApp();
-        } else {
-            elements.keyError.textContent = data.error || 'Invalid API key';
-        }
-    } catch (e) {
-        elements.keyError.textContent = 'Failed to connect to server. Is the backend running?';
-    } finally {
-        elements.saveKeyBtn.disabled = false;
-        elements.saveKeyBtn.textContent = 'Connect';
-    }
-}
-
-function showApp() {
-    elements.apiKeyModal.classList.add('hidden');
-    elements.app.classList.remove('hidden');
-}
 
 // ─── Chat Input ─────────────────────────────────────────────────────────────────
 

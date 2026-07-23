@@ -46,6 +46,16 @@ with open(patient_profile_path, "r", encoding="utf-8") as f:
 PATIENT_ID = patient_profile["patient_id"]
 print(f"[INFO] Patient loaded: {patient_profile['name']} ({PATIENT_ID})")
 
+# ─── Load Environment Variables ──────────────────────────────────────────────────
+
+env_file = os.path.join(BASE_DIR, ".env")
+if os.path.exists(env_file):
+    with open(env_file, "r", encoding="utf-8") as f:
+        for line in f:
+            if line.strip() and not line.startswith("#") and "=" in line:
+                k, v = line.strip().split("=", 1)
+                os.environ[k.strip()] = v.strip().strip("'\"")
+
 # ─── Initialize Groq Client ─────────────────────────────────────────────────────
 
 groq_api_key = os.environ.get("GROQ_API_KEY", "")
@@ -53,9 +63,10 @@ groq_client = None
 
 if groq_api_key:
     groq_client = Groq(api_key=groq_api_key)
-    print("[OK] Groq API initialized")
+    print("[OK] Groq API initialized with configured key")
 else:
-    print("[WARN] GROQ_API_KEY not set. Set it via environment variable or /api/set-key endpoint.")
+    print("[WARN] GROQ_API_KEY not set. Set it via environment variable or .env file.")
+
 
 
 # ─── Memory Manager ─────────────────────────────────────────────────────────────
@@ -272,8 +283,15 @@ def generate_response(query: str) -> dict:
 
 @app.route("/")
 def index():
-    """Serve the main chat interface."""
+    """Serve the main landing page website."""
     return render_template("index.html")
+
+
+@app.route("/chat")
+def chat_page():
+    """Serve the AI chat assistant interface."""
+    return render_template("chat.html")
+
 
 
 @app.route("/api/chat", methods=["POST"])
