@@ -16,7 +16,6 @@ ENV/
 .venv/
 
 # Vector DB & Dynamic Data Caches
-chroma_db/
 memory/*.json
 !memory/.gitkeep
 
