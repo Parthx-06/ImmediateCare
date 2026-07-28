@@ -34,8 +34,15 @@ try:
     collection = chroma_client.get_collection("doctor_instructions")
     print(f"[OK] ChromaDB loaded: {collection.count()} instructions in database")
 except Exception:
-    print("[WARN] ChromaDB collection not found! Run 'python seed_data.py' first.")
-    collection = None
+    print("[WARN] ChromaDB collection not found! Auto-seeding database now...")
+    try:
+        from seed_data import seed_database
+        seed_database()
+        collection = chroma_client.get_collection("doctor_instructions")
+        print(f"[OK] ChromaDB auto-seeded: {collection.count()} instructions loaded")
+    except Exception as e:
+        print(f"[ERROR] Failed to auto-seed ChromaDB: {e}")
+        collection = None
 
 # ─── Load Patient Profile ───────────────────────────────────────────────────────
 
@@ -62,8 +69,11 @@ groq_api_key = os.environ.get("GROQ_API_KEY", "")
 groq_client = None
 
 if groq_api_key:
-    groq_client = Groq(api_key=groq_api_key)
-    print("[OK] Groq API initialized with configured key")
+    try:
+        groq_client = Groq(api_key=groq_api_key)
+        print("[OK] Groq API initialized with configured key")
+    except Exception as e:
+        print(f"[WARN] Failed to initialize Groq client: {e}")
 else:
     print("[WARN] GROQ_API_KEY not set. Set it via environment variable or .env file.")
 
@@ -214,30 +224,39 @@ def generate_response(query: str) -> dict:
     global groq_client
 
     if groq_client is None:
+        api_key = os.environ.get("GROQ_API_KEY", "").strip()
+        if api_key:
+            try:
+                groq_client = Groq(api_key=api_key)
+                print("[OK] Groq client initialized on demand from environment variable")
+            except Exception as e:
+                print(f"[ERROR] Failed to init Groq client: {e}")
+
+    if groq_client is None:
         return {
-            "response": "⚠️ Groq API key is not configured. Please set your API key using the settings panel.",
+            "response": "⚠️ Groq API key is not configured on Render. Please add GROQ_API_KEY under Render Environment settings.",
             "sources": [],
             "error": True
         }
 
     if collection is None:
         return {
-            "response": "⚠️ Database not initialized. Please run 'python seed_data.py' first.",
+            "response": "⚠️ Database not initialized. Auto-seeding failed.",
             "sources": [],
             "error": True
         }
 
-    # Step 1: Retrieve relevant context from ChromaDB
-    context_docs = retrieve_context(query, n_results=5)
-
-    # Step 2: Load patient conversation history
-    conversation_history = load_memory(PATIENT_ID)
-
-    # Step 3: Build system prompt
-    system_prompt = build_system_prompt(context_docs, conversation_history)
-
-    # Step 4: Call Groq LLM
     try:
+        # Step 1: Retrieve relevant context from ChromaDB
+        context_docs = retrieve_context(query, n_results=5)
+
+        # Step 2: Load patient conversation history
+        conversation_history = load_memory(PATIENT_ID)
+
+        # Step 3: Build system prompt
+        system_prompt = build_system_prompt(context_docs, conversation_history)
+
+        # Step 4: Call Groq LLM
         chat_completion = groq_client.chat.completions.create(
             messages=[
                 {"role": "system", "content": system_prompt},
@@ -251,32 +270,36 @@ def generate_response(query: str) -> dict:
 
         response_text = chat_completion.choices[0].message.content
 
-    except Exception as e:
+        # Step 5: Format sources
+        sources = []
+        for doc in context_docs:
+            sources.append({
+                "id": doc["id"],
+                "title": doc["metadata"].get("title", ""),
+                "category": doc["metadata"].get("category", ""),
+                "priority": doc["metadata"].get("priority", ""),
+                "relevance": round(1 - doc["distance"], 3)  # Convert distance to similarity
+            })
+
+        # Step 6: Save to patient memory
+        try:
+            add_to_memory(PATIENT_ID, query, response_text, [s["id"] for s in sources])
+        except Exception as mem_err:
+            print(f"[WARN] Failed to save memory: {mem_err}")
+
         return {
-            "response": f"⚠️ Error generating response: {str(e)}",
+            "response": response_text,
+            "sources": sources,
+            "error": False
+        }
+
+    except Exception as e:
+        print(f"[ERROR] RAG Pipeline exception: {e}")
+        return {
+            "response": f"⚠️ Server Error processing request: {str(e)}",
             "sources": [],
             "error": True
         }
-
-    # Step 5: Format sources
-    sources = []
-    for doc in context_docs:
-        sources.append({
-            "id": doc["id"],
-            "title": doc["metadata"].get("title", ""),
-            "category": doc["metadata"].get("category", ""),
-            "priority": doc["metadata"].get("priority", ""),
-            "relevance": round(1 - doc["distance"], 3)  # Convert distance to similarity
-        })
-
-    # Step 6: Save to patient memory
-    add_to_memory(PATIENT_ID, query, response_text, [s["id"] for s in sources])
-
-    return {
-        "response": response_text,
-        "sources": sources,
-        "error": False
-    }
 
 
 # ─── API Routes ──────────────────────────────────────────────────────────────────

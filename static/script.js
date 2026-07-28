@@ -217,17 +217,31 @@ async function sendMessage() {
             body: JSON.stringify({ query })
         });
 
-        const data = await res.json();
+        let data;
+        const textResponse = await res.text();
+        try {
+            data = JSON.parse(textResponse);
+        } catch (jsonErr) {
+            console.error('Non-JSON server response:', textResponse);
+            typingEl.remove();
+            appendMessage('assistant', `⚠️ Server returned an error (${res.status}). Please check Render logs.`);
+            return;
+        }
 
         // Remove typing indicator
         typingEl.remove();
 
         // Add assistant response
-        appendMessage('assistant', data.response, null, data.sources);
+        if (data.error) {
+            appendMessage('assistant', data.response || '⚠️ An error occurred while generating the response.');
+        } else {
+            appendMessage('assistant', data.response, null, data.sources);
+        }
 
     } catch (e) {
         typingEl.remove();
-        appendMessage('assistant', '⚠️ Failed to connect to the server. Please make sure the backend is running on port 5000.');
+        console.error('Network or Chat Error:', e);
+        appendMessage('assistant', `⚠️ Failed to connect to server: ${e.message}`);
     } finally {
         isLoading = false;
         elements.sendBtn.disabled = elements.chatInput.value.trim().length === 0;
