@@ -5,8 +5,8 @@ services:
   - type: web
     name: patient-care-rag
     runtime: python
-    buildCommand: "pip install -r requirements.txt && python seed_data.py"
-    startCommand: "gunicorn app:app --timeout 120 --workers 2 --preload"
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn app:app --timeout 120 --workers 2"
     envVars:
       - key: GROQ_API_KEY
         sync: false  # Set manually in Render dashboard

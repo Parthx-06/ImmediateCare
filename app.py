@@ -7,10 +7,11 @@ import json
 import os
 from datetime import datetime
 
-import chromadb
 from flask import Flask, jsonify, render_template, request
 from flask_cors import CORS
 from groq import Groq
+
+from retriever import MedicalRetriever
 
 # ─── Configuration ──────────────────────────────────────────────────────────────
 
@@ -27,22 +28,25 @@ os.makedirs(MEMORY_DIR, exist_ok=True)
 app = Flask(__name__)
 CORS(app)
 
-# ─── Initialize ChromaDB ────────────────────────────────────────────────────────
+# ─── Initialize Retriever ───────────────────────────────────────────────────────
 
-chroma_client = chromadb.PersistentClient(path=CHROMA_DIR)
+medical_retriever = None
 try:
+    medical_retriever = MedicalRetriever()
+    print(f"[OK] MedicalRetriever loaded: {medical_retriever.N} instructions in database")
+except Exception as e:
+    print(f"[WARN] Failed to load MedicalRetriever: {e}")
+
+# Optional ChromaDB fallback
+chroma_client = None
+collection = None
+try:
+    import chromadb
+    chroma_client = chromadb.PersistentClient(path=CHROMA_DIR)
     collection = chroma_client.get_collection("doctor_instructions")
     print(f"[OK] ChromaDB loaded: {collection.count()} instructions in database")
 except Exception:
-    print("[WARN] ChromaDB collection not found! Auto-seeding database now...")
-    try:
-        from seed_data import seed_database
-        seed_database()
-        collection = chroma_client.get_collection("doctor_instructions")
-        print(f"[OK] ChromaDB auto-seeded: {collection.count()} instructions loaded")
-    except Exception as e:
-        print(f"[ERROR] Failed to auto-seed ChromaDB: {e}")
-        collection = None
+    collection = None
 
 # ─── Load Patient Profile ───────────────────────────────────────────────────────
 
@@ -198,25 +202,33 @@ def build_system_prompt(context_docs: list, conversation_history: list) -> str:
 
 
 def retrieve_context(query: str, n_results: int = 5) -> list:
-    """Retrieve relevant doctor instructions from ChromaDB."""
-    if collection is None:
-        return []
+    """Retrieve relevant doctor instructions using MedicalRetriever (or ChromaDB fallback)."""
+    if medical_retriever is not None:
+        try:
+            return medical_retriever.query(query, n_results=n_results)
+        except Exception as e:
+            print(f"[WARN] MedicalRetriever query failed: {e}")
 
-    results = collection.query(
-        query_texts=[query],
-        n_results=n_results
-    )
+    if collection is not None:
+        try:
+            results = collection.query(
+                query_texts=[query],
+                n_results=n_results
+            )
 
-    docs = []
-    for i in range(len(results["ids"][0])):
-        docs.append({
-            "id": results["ids"][0][i],
-            "content": results["documents"][0][i],
-            "metadata": results["metadatas"][0][i],
-            "distance": results["distances"][0][i]
-        })
+            docs = []
+            for i in range(len(results["ids"][0])):
+                docs.append({
+                    "id": results["ids"][0][i],
+                    "content": results["documents"][0][i],
+                    "metadata": results["metadatas"][0][i],
+                    "distance": results["distances"][0][i]
+                })
+            return docs
+        except Exception as e:
+            print(f"[WARN] ChromaDB query failed: {e}")
 
-    return docs
+    return []
 
 
 def generate_response(query: str) -> dict:
@@ -227,6 +239,7 @@ def generate_response(query: str) -> dict:
         api_key = os.environ.get("GROQ_API_KEY", "").strip()
         if api_key:
             try:
+                from groq import Groq
                 groq_client = Groq(api_key=api_key)
                 print("[OK] Groq client initialized on demand from environment variable")
             except Exception as e:
@@ -239,9 +252,9 @@ def generate_response(query: str) -> dict:
             "error": True
         }
 
-    if collection is None:
+    if medical_retriever is None and collection is None:
         return {
-            "response": "⚠️ Database not initialized. Auto-seeding failed.",
+            "response": "⚠️ Database not initialized.",
             "sources": [],
             "error": True
         }
@@ -323,8 +336,8 @@ def health():
     return jsonify({
         "status": "ok",
         "groq_configured": groq_client is not None,
-        "chromadb_ready": collection is not None,
-        "chromadb_count": collection.count() if collection else 0,
+        "retriever_ready": medical_retriever is not None or collection is not None,
+        "retriever_count": medical_retriever.N if medical_retriever else (collection.count() if collection else 0),
         "patient": patient_profile.get("name", "unknown"),
     })
 
