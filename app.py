@@ -294,6 +294,18 @@ def chat_page():
 
 
 
+@app.route("/api/health", methods=["GET"])
+def health():
+    """Health check endpoint — use this to verify Render deployment."""
+    return jsonify({
+        "status": "ok",
+        "groq_configured": groq_client is not None,
+        "chromadb_ready": collection is not None,
+        "chromadb_count": collection.count() if collection else 0,
+        "patient": patient_profile.get("name", "unknown"),
+    })
+
+
 @app.route("/api/chat", methods=["POST"])
 def chat():
     """Main RAG chat endpoint."""
@@ -303,7 +315,12 @@ def chat():
     if not query:
         return jsonify({"error": "Query cannot be empty"}), 400
 
+    print(f"[CHAT] Query: {query[:100]}...")
     result = generate_response(query)
+    if result.get("error"):
+        print(f"[CHAT ERROR] {result['response']}")
+    else:
+        print(f"[CHAT OK] Response length: {len(result['response'])} chars")
     return jsonify(result)
 
 
