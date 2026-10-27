@@ -1008,3 +1008,705 @@ ul, ol {
 .sidebar-overlay.active {
     display: block;
 }
+
+/* ── Header Extra Buttons ────────────────────────────────────────── */
+.header-home-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-primary);
+    border-radius: 8px;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all var(--transition-fast);
+}
+
+.header-home-btn:hover {
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--accent-primary);
+    border-color: var(--accent-primary);
+    text-decoration: none;
+}
+
+.header-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    border: none;
+}
+
+.vitals-action-btn {
+    background: rgba(14, 165, 233, 0.15);
+    color: #38bdf8;
+    border: 1px solid rgba(14, 165, 233, 0.3);
+}
+
+.vitals-action-btn:hover {
+    background: rgba(14, 165, 233, 0.25);
+    transform: translateY(-1px);
+}
+
+.sos-pulse-btn {
+    background: linear-gradient(135deg, #e11d48, #be123c);
+    color: #ffffff;
+    box-shadow: 0 0 16px rgba(225, 29, 72, 0.4);
+    animation: sosGlow 2s infinite ease-in-out;
+}
+
+.sos-pulse-btn:hover {
+    transform: translateY(-1px) scale(1.02);
+    box-shadow: 0 0 24px rgba(225, 29, 72, 0.65);
+}
+
+.sos-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ffffff;
+    display: inline-block;
+    animation: blink 1s infinite alternate;
+}
+
+@keyframes sosGlow {
+    0%, 100% { box-shadow: 0 0 12px rgba(225, 29, 72, 0.35); }
+    50% { box-shadow: 0 0 22px rgba(225, 29, 72, 0.7); }
+}
+
+@keyframes blink {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+}
+
+/* ── Pill Checklist Widget ────────────────────────────────────────── */
+.section-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.badge-pill {
+    font-size: 0.75rem;
+    background: rgba(56, 189, 248, 0.15);
+    color: var(--accent-primary);
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    font-weight: 700;
+}
+
+.link-btn {
+    background: transparent;
+    border: none;
+    color: var(--accent-primary);
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+}
+
+.link-btn:hover {
+    background: rgba(56, 189, 248, 0.1);
+    text-decoration: underline;
+}
+
+.pill-checklist-container {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid var(--border-primary);
+    border-radius: 10px;
+    padding: 0.75rem;
+}
+
+.pill-progress-bar {
+    width: 100%;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    overflow: hidden;
+    margin-bottom: 0.85rem;
+}
+
+.pill-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #0ea5e9, #10b981);
+    border-radius: 999px;
+    transition: width 0.3s ease;
+}
+
+.pill-timing-group {
+    margin-bottom: 0.75rem;
+}
+
+.pill-timing-group:last-child {
+    margin-bottom: 0;
+}
+
+.timing-label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.35rem;
+}
+
+.pill-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.3rem 0;
+    cursor: pointer;
+    font-size: 0.82rem;
+    transition: opacity 0.2s;
+}
+
+.pill-checkbox {
+    margin-top: 0.2rem;
+    accent-color: #10b981;
+    cursor: pointer;
+    width: 14px;
+    height: 14px;
+}
+
+.pill-text {
+    color: var(--text-primary);
+    display: flex;
+    flex-direction: column;
+}
+
+.pill-text small {
+    color: var(--text-muted);
+    font-size: 0.7rem;
+}
+
+.pill-item.taken .pill-text {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+/* ── Vitals Mini Card ─────────────────────────────────────────────── */
+.vitals-mini-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid var(--border-primary);
+    border-radius: 10px;
+    padding: 0.75rem;
+}
+
+.vitals-mini-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.vitals-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+}
+
+.vitals-val {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+}
+
+/* ── Voice Input & Footer Flex ────────────────────────────────────── */
+.voice-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-primary);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.voice-btn:hover {
+    background: rgba(56, 189, 248, 0.15);
+    color: var(--accent-primary);
+    border-color: var(--accent-primary);
+}
+
+.voice-btn.recording {
+    background: #e11d48;
+    color: #ffffff;
+    border-color: #f43f5e;
+    animation: pulseRecording 1.2s infinite ease-in-out;
+}
+
+@keyframes pulseRecording {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.6); }
+    50% { box-shadow: 0 0 0 10px rgba(225, 29, 72, 0); }
+}
+
+.input-footer-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.4rem;
+}
+
+.voice-indicator {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #f43f5e;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    animation: blink 0.8s infinite alternate;
+}
+
+/* ── Assistant Message Action Bar (TTS, Copy, Share) ──────────────── */
+.message-action-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.6rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.action-pill-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.25rem 0.6rem;
+    font-size: 0.75rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-primary);
+    border-radius: 6px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.action-pill-btn:hover {
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--accent-primary);
+    border-color: rgba(56, 189, 248, 0.3);
+}
+
+.action-pill-btn.playing {
+    background: rgba(16, 185, 129, 0.15);
+    color: #10b981;
+    border-color: #10b981;
+}
+
+/* ── Modals ───────────────────────────────────────────────────────── */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 8, 16, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1.5rem;
+    transition: opacity 0.25s ease;
+}
+
+.modal-backdrop.hidden {
+    display: none;
+    opacity: 0;
+}
+
+.modal-card {
+    background: #0f172a;
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: 18px;
+    width: 100%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+    animation: modalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalPop {
+    from { transform: scale(0.94); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--border-primary);
+}
+
+.modal-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.modal-title-wrap h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.modal-title-wrap p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+.modal-close-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.6rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0.2rem;
+    border-radius: 4px;
+    transition: color 0.2s;
+}
+
+.modal-close-btn:hover {
+    color: var(--text-primary);
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+/* Emergency Modal Specifics */
+.emergency-modal-card {
+    border-color: rgba(225, 29, 72, 0.4);
+    box-shadow: 0 0 40px rgba(225, 29, 72, 0.25);
+}
+
+.emergency-icon-pulse {
+    font-size: 2rem;
+    animation: sosGlow 1.5s infinite alternate;
+}
+
+.emergency-call-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+
+.emergency-call-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.emergency-call-card:hover {
+    text-decoration: none;
+    transform: translateY(-2px);
+}
+
+.primary-call {
+    background: rgba(225, 29, 72, 0.15);
+    border-color: rgba(225, 29, 72, 0.4);
+    color: #fff;
+}
+
+.primary-call:hover {
+    background: rgba(225, 29, 72, 0.25);
+    box-shadow: 0 4px 16px rgba(225, 29, 72, 0.35);
+}
+
+.secondary-call {
+    background: rgba(14, 165, 233, 0.12);
+    border-color: rgba(14, 165, 233, 0.35);
+    color: #fff;
+}
+
+.secondary-call:hover {
+    background: rgba(14, 165, 233, 0.22);
+    box-shadow: 0 4px 16px rgba(14, 165, 233, 0.25);
+}
+
+.hospital-call {
+    background: rgba(16, 185, 129, 0.12);
+    border-color: rgba(16, 185, 129, 0.35);
+    color: #fff;
+}
+
+.hospital-call:hover {
+    background: rgba(16, 185, 129, 0.22);
+}
+
+.call-icon {
+    font-size: 1.6rem;
+    flex-shrink: 0;
+}
+
+.call-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.call-info strong {
+    font-size: 0.95rem;
+    color: #ffffff;
+}
+
+.call-info span {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+}
+
+.call-action {
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    letter-spacing: 0.05em;
+}
+
+.emergency-steps-box {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-primary);
+    border-radius: 12px;
+    padding: 1.25rem;
+}
+
+.emergency-steps-box h3 {
+    font-size: 0.95rem;
+    color: #f43f5e;
+    margin-bottom: 0.75rem;
+}
+
+.emergency-steps-list {
+    padding-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.emergency-steps-list strong {
+    color: #ffffff;
+}
+
+/* Vitals Logger Modal Specifics */
+.vitals-inputs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.vitals-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.vitals-field label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.input-with-unit {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-with-unit input {
+    width: 100%;
+    padding: 0.6rem 2.8rem 0.6rem 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-primary);
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: var(--font-family);
+}
+
+.input-with-unit input:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+}
+
+.input-with-unit span {
+    position: absolute;
+    right: 0.75rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.field-hint {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+}
+
+.vitals-feedback-card {
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.vitals-feedback-normal {
+    background: rgba(16, 185, 129, 0.15);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.vitals-feedback-elevated {
+    background: rgba(234, 179, 8, 0.15);
+    color: #fbbf24;
+    border: 1px solid rgba(234, 179, 8, 0.3);
+}
+
+.vitals-feedback-high {
+    background: rgba(225, 29, 72, 0.15);
+    color: #f87171;
+    border: 1px solid rgba(225, 29, 72, 0.3);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1.5rem;
+}
+
+.vitals-history-section {
+    border-top: 1px solid var(--border-primary);
+    padding-top: 1.25rem;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.history-header h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.btn-text-danger {
+    background: transparent;
+    border: none;
+    color: #f43f5e;
+    font-size: 0.75rem;
+    cursor: pointer;
+}
+
+.btn-text-danger:hover {
+    text-decoration: underline;
+}
+
+.vitals-table-wrap {
+    overflow-x: auto;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-primary);
+    border-radius: 8px;
+}
+
+.vitals-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+    text-align: left;
+}
+
+.vitals-table th, .vitals-table td {
+    padding: 0.6rem 0.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.vitals-table th {
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.vitals-table tr:last-child td {
+    border-bottom: none;
+}
+
+.empty-state {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 1.25rem;
+}
+
+/* ── Toast Notifications ─────────────────────────────────────────── */
+.toast-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 2000;
+    pointer-events: none;
+}
+
+.toast {
+    background: #1e293b;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    color: #f8fafc;
+    font-size: 0.85rem;
+    font-weight: 500;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    animation: toastSlide 0.3s ease;
+    pointer-events: auto;
+}
+
+@keyframes toastSlide {
+    from { transform: translateY(15px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@media (max-width: 640px) {
+    .vitals-inputs-grid {
+        grid-template-columns: 1fr;
+    }
+    .header-action-btn .btn-label {
+        display: none;
+    }
+    .modal-card {
+        padding: 0.5rem;
+    }
+}
+

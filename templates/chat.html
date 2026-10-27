@@ -53,6 +53,74 @@
             </div>
 
             <div class="sidebar-section">
+                <div class="section-header-flex">
+                    <h4>💊 Today's Pill Checklist</h4>
+                    <span id="pill-progress-badge" class="badge-pill">0/7</span>
+                </div>
+                <div class="pill-checklist-container">
+                    <div class="pill-progress-bar"><div id="pill-progress-fill" class="pill-progress-fill" style="width: 0%"></div></div>
+                    <div class="pill-timing-group">
+                        <span class="timing-label">🌅 Morning (Before Food)</span>
+                        <label class="pill-item">
+                            <input type="checkbox" data-pill="panto" class="pill-checkbox">
+                            <span class="pill-text">Pantoprazole 40mg <small>Empty stomach</small></span>
+                        </label>
+                    </div>
+                    <div class="pill-timing-group">
+                        <span class="timing-label">🌅 Morning (After Breakfast)</span>
+                        <label class="pill-item">
+                            <input type="checkbox" data-pill="meto" class="pill-checkbox">
+                            <span class="pill-text">Metoprolol 25mg <small>Check pulse first</small></span>
+                        </label>
+                        <label class="pill-item">
+                            <input type="checkbox" data-pill="rami" class="pill-checkbox">
+                            <span class="pill-text">Ramipril 5mg <small>BP support</small></span>
+                        </label>
+                        <label class="pill-item">
+                            <input type="checkbox" data-pill="metf1" class="pill-checkbox">
+                            <span class="pill-text">Metformin 500mg <small>Blood sugar</small></span>
+                        </label>
+                    </div>
+                    <div class="pill-timing-group">
+                        <span class="timing-label">☀️ Afternoon (After Lunch)</span>
+                        <label class="pill-item">
+                            <input type="checkbox" data-pill="aspi" class="pill-checkbox">
+                            <span class="pill-text">Aspirin 75mg <small>Clot prevention</small></span>
+                        </label>
+                    </div>
+                    <div class="pill-timing-group">
+                        <span class="timing-label">🌙 Night (After Dinner & Bedtime)</span>
+                        <label class="pill-item">
+                            <input type="checkbox" data-pill="clop" class="pill-checkbox">
+                            <span class="pill-text">Clopidogrel 75mg <small>Stent protection</small></span>
+                        </label>
+                        <label class="pill-item">
+                            <input type="checkbox" data-pill="ator" class="pill-checkbox">
+                            <span class="pill-text">Atorvastatin 40mg <small>Cholesterol / Bedtime</small></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vitals Quick Card -->
+            <div class="sidebar-section">
+                <div class="section-header-flex">
+                    <h4>🩺 Latest Vitals</h4>
+                    <button id="open-vitals-btn" class="link-btn">+ Log</button>
+                </div>
+                <div id="sidebar-vitals-card" class="vitals-mini-card">
+                    <div class="vitals-mini-item">
+                        <span class="vitals-label">Blood Pressure</span>
+                        <span id="mini-bp" class="vitals-val">-- / --</span>
+                    </div>
+                    <div class="vitals-mini-item">
+                        <span class="vitals-label">Pulse (Heart Rate)</span>
+                        <span id="mini-pulse" class="vitals-val">-- bpm</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
                 <h4>Allergies</h4>
                 <div class="allergy-tags" id="allergy-tags">—</div>
             </div>
@@ -75,12 +143,27 @@
             <header class="chat-header">
                 <div class="chat-header-left">
                     <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Open menu">☰</button>
+                    <a href="/" class="header-home-btn" title="Back to Homepage">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                        <span>Home</span>
+                    </a>
                     <div>
                         <h1>HeartGuard AI Assistant</h1>
-                        <p class="chat-header-subtitle">Your post-angioplasty care companion</p>
+                        <p class="chat-header-subtitle">Your post-angioplasty care companion • Dr. Srinivas Rao's Care Plan</p>
                     </div>
                 </div>
                 <div class="chat-header-right">
+                    <button id="header-vitals-btn" class="header-action-btn vitals-action-btn">
+                        <span>🩺</span>
+                        <span class="btn-label">Vitals Log</span>
+                    </button>
+                    <button id="header-sos-btn" class="header-action-btn sos-pulse-btn">
+                        <span class="sos-dot"></span>
+                        <span>🚨 SOS Emergency</span>
+                    </button>
                     <div class="status-badge" id="status-badge">
                         <span class="status-dot"></span>
                         <span>Online</span>
@@ -94,25 +177,33 @@
                     <span class="quick-icon">💊</span>
                     <span>Medicine Schedule</span>
                 </button>
-                <button class="quick-btn" data-query="What foods can I eat and what should I avoid?">
-                    <span class="quick-icon">🥗</span>
-                    <span>Diet Plan</span>
-                </button>
-                <button class="quick-btn" data-query="How much walking and exercise can I do this week?">
-                    <span class="quick-icon">🚶</span>
-                    <span>Activity Guide</span>
-                </button>
                 <button class="quick-btn emergency" data-query="I am having chest pain right now, what should I do?">
                     <span class="quick-icon">🚨</span>
-                    <span>Emergency Help</span>
+                    <span>Chest Pain SOS</span>
+                </button>
+                <button class="quick-btn" data-query="How should I care for my wrist and groin puncture wound site?">
+                    <span class="quick-icon">🩹</span>
+                    <span>Wound & Bathing</span>
+                </button>
+                <button class="quick-btn" data-query="Can I take Brufen, Combiflam or other painkillers for headache?">
+                    <span class="quick-icon">⚠️</span>
+                    <span>Painkillers Warning</span>
+                </button>
+                <button class="quick-btn" data-query="How much salt can I eat and what Indian foods should I avoid?">
+                    <span class="quick-icon">🥗</span>
+                    <span>Salt & Diet Plan</span>
+                </button>
+                <button class="quick-btn" data-query="How much walking can I do and can I climb stairs at home?">
+                    <span class="quick-icon">🚶</span>
+                    <span>Walking & Stairs</span>
+                </button>
+                <button class="quick-btn" data-query="When is it safe to travel by air or drive a car after stent?">
+                    <span class="quick-icon">✈️</span>
+                    <span>Travel & Driving</span>
                 </button>
                 <button class="quick-btn" data-query="When is my next follow-up appointment and what tests are needed?">
                     <span class="quick-icon">📅</span>
-                    <span>Follow-up</span>
-                </button>
-                <button class="quick-btn" data-query="What are the side effects I should watch for from my medications?">
-                    <span class="quick-icon">⚠️</span>
-                    <span>Side Effects</span>
+                    <span>Follow-up Tests</span>
                 </button>
             </div>
 
@@ -124,16 +215,15 @@
                     <div class="message-content">
                         <div class="message-bubble">
                             <p>Namaste, <strong>Rajesh ji</strong>! 🙏</p>
-                            <p>I'm your HeartGuard AI assistant — here to help you with your post-angioplasty care based on <strong>Dr. Srinivas Rao's</strong> instructions.</p>
-                            <p>You can ask me about:</p>
+                            <p>I'm your HeartGuard AI assistant — here to provide <strong>concise, direct guidance</strong> based on <strong>Dr. Srinivas Rao's</strong> instructions for your 2 stents.</p>
+                            <p>Quick topics I can help with:</p>
                             <ul>
-                                <li>💊 <strong>Medications</strong> — dosages, timings, side effects</li>
-                                <li>🥗 <strong>Diet</strong> — what to eat, what to avoid</li>
-                                <li>🚶 <strong>Activity</strong> — walking schedule, restrictions</li>
-                                <li>🚨 <strong>Emergencies</strong> — what to do if something feels wrong</li>
-                                <li>🩺 <strong>Symptoms</strong> — headache, dizziness, fatigue</li>
+                                <li>💊 <strong>Medications</strong> — exact timings & pill reminder</li>
+                                <li>🩹 <strong>Wound Care</strong> — wrist & groin precautions</li>
+                                <li>🥗 <strong>Diet & Salt</strong> — daily limits & food choices</li>
+                                <li>🚨 <strong>Chest Pain Protocol</strong> — instant Sorbitrate steps</li>
                             </ul>
-                            <p>Use the quick buttons above or type your question below. I'm here 24/7! 😊</p>
+                            <p>Tap any quick button above or speak your question using the microphone! 😊</p>
                         </div>
                         <span class="message-time">Just now</span>
                     </div>
@@ -145,11 +235,19 @@
                 <div class="chat-input-container">
                     <textarea 
                         id="chat-input" 
-                        placeholder="Ask about your medications, diet, symptoms..." 
+                        placeholder="Ask anything about medicines, diet, symptoms... or tap 🎤 to speak" 
                         rows="1"
                         maxlength="1000"
                         aria-label="Type your message"
                     ></textarea>
+                    <button id="voice-btn" class="voice-btn" aria-label="Voice input" title="Tap to speak">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                            <line x1="12" y1="19" x2="12" y2="23"/>
+                            <line x1="8" y1="23" x2="16" y2="23"/>
+                        </svg>
+                    </button>
                     <button id="send-btn" class="send-btn" aria-label="Send message" disabled>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="22" y1="2" x2="11" y2="13"></line>
@@ -157,10 +255,156 @@
                         </svg>
                     </button>
                 </div>
-                <p class="input-disclaimer">HeartGuard AI provides information based on your doctor's instructions. For emergencies, call <strong>108</strong> immediately.</p>
+                <div class="input-footer-flex">
+                    <p class="input-disclaimer">HeartGuard AI answers strictly from doctor's verified care plan. For severe chest pain, call <strong>108</strong> immediately.</p>
+                    <span id="voice-indicator" class="voice-indicator hidden">🎙️ Listening... speak now</span>
+                </div>
             </div>
         </main>
     </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         EMERGENCY SOS MODAL
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <div id="emergency-modal" class="modal-backdrop hidden">
+        <div class="modal-card emergency-modal-card">
+            <div class="modal-header emergency-modal-header">
+                <div class="modal-title-wrap">
+                    <span class="emergency-icon-pulse">🚨</span>
+                    <div>
+                        <h2>Emergency Cardiac Protocol</h2>
+                        <p>Immediate steps for severe chest pain, breathlessness, or collapse</p>
+                    </div>
+                </div>
+                <button class="modal-close-btn" id="emergency-modal-close" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="emergency-call-grid">
+                    <a href="tel:108" class="emergency-call-card primary-call">
+                        <span class="call-icon">🚑</span>
+                        <div class="call-info">
+                            <strong>Call 108 (National Ambulance)</strong>
+                            <span>Free emergency medical response</span>
+                        </div>
+                        <span class="call-action">CALL NOW</span>
+                    </a>
+                    <a href="tel:+919876543210" class="emergency-call-card secondary-call">
+                        <span class="call-icon">👨‍⚕️</span>
+                        <div class="call-info">
+                            <strong>Dr. Srinivas Rao (Cardiologist)</strong>
+                            <span>+91-9876543210 (Direct Medical Line)</span>
+                        </div>
+                        <span class="call-action">CALL DOCTOR</span>
+                    </a>
+                    <a href="tel:+914023607777" class="emergency-call-card hospital-call">
+                        <span class="call-icon">🏥</span>
+                        <div class="call-info">
+                            <strong>Apollo Hospital ER</strong>
+                            <span>24/7 Cardiac Emergency Unit</span>
+                        </div>
+                        <span class="call-action">CALL HOSPITAL</span>
+                    </a>
+                </div>
+
+                <div class="emergency-steps-box">
+                    <h3>⚡ If Experiencing Chest Pain Right Now:</h3>
+                    <ol class="emergency-steps-list">
+                        <li><strong>1. STOP & SIT DOWN IMMEDIATELY</strong> — Do not walk, stand, or drive. Sitting prevents fainting if blood pressure drops.</li>
+                        <li><strong>2. TAKE SORBITRATE UNDER TONGUE</strong> — Place 1 Sorbitrate (5mg) tablet under your tongue. Let it dissolve; do NOT swallow.</li>
+                        <li><strong>3. REST FOR 5 MINUTES</strong> — If pain is not relieved in 5 minutes, take a second tablet and call <strong>108</strong> without waiting.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         VITALS TRACKER MODAL
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <div id="vitals-modal" class="modal-backdrop hidden">
+        <div class="modal-card vitals-modal-card">
+            <div class="modal-header">
+                <div class="modal-title-wrap">
+                    <span class="modal-icon">🩺</span>
+                    <div>
+                        <h2>Daily Vitals Logger</h2>
+                        <p>Track your blood pressure, heart rate, and sugar recovery metrics</p>
+                    </div>
+                </div>
+                <button class="modal-close-btn" id="vitals-modal-close" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="vitals-form" class="vitals-form">
+                    <div class="vitals-inputs-grid">
+                        <div class="vitals-field">
+                            <label for="input-systolic">Systolic BP (Upper)</label>
+                            <div class="input-with-unit">
+                                <input type="number" id="input-systolic" placeholder="120" min="70" max="250" required>
+                                <span>mmHg</span>
+                            </div>
+                            <small class="field-hint">Target: &lt; 130 mmHg</small>
+                        </div>
+                        <div class="vitals-field">
+                            <label for="input-diastolic">Diastolic BP (Lower)</label>
+                            <div class="input-with-unit">
+                                <input type="number" id="input-diastolic" placeholder="80" min="40" max="150" required>
+                                <span>mmHg</span>
+                            </div>
+                            <small class="field-hint">Target: &lt; 80 mmHg</small>
+                        </div>
+                        <div class="vitals-field">
+                            <label for="input-pulse">Resting Heart Rate</label>
+                            <div class="input-with-unit">
+                                <input type="number" id="input-pulse" placeholder="72" min="40" max="200" required>
+                                <span>bpm</span>
+                            </div>
+                            <small class="field-hint">Alert if &lt; 55 bpm (skip Metoprolol)</small>
+                        </div>
+                        <div class="vitals-field">
+                            <label for="input-sugar">Fasting Blood Sugar</label>
+                            <div class="input-with-unit">
+                                <input type="number" id="input-sugar" placeholder="110" min="50" max="400">
+                                <span>mg/dL</span>
+                            </div>
+                            <small class="field-hint">Target: 100 - 130 mg/dL</small>
+                        </div>
+                    </div>
+
+                    <div id="vitals-live-feedback" class="vitals-feedback-card hidden"></div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary" id="save-vitals-btn">Save Reading</button>
+                    </div>
+                </form>
+
+                <div class="vitals-history-section">
+                    <div class="history-header">
+                        <h3>Past 5 Recorded Readings</h3>
+                        <button id="clear-vitals-btn" class="btn-text-danger">Clear History</button>
+                    </div>
+                    <div class="vitals-table-wrap">
+                        <table class="vitals-table" id="vitals-table">
+                            <thead>
+                                <tr>
+                                    <th>Date & Time</th>
+                                    <th>BP</th>
+                                    <th>Pulse</th>
+                                    <th>Sugar</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="vitals-history-body">
+                                <tr><td colspan="5" class="empty-state">No readings recorded yet. Log your first reading above!</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="toast-container"></div>
 
     <script src="/static/script.js"></script>
 </body>

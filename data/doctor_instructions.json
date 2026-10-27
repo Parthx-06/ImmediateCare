@@ -395,6 +395,103 @@
       "title": "Dental Procedures and Other Surgeries",
       "content": "IMPORTANT: Before any dental procedure (tooth extraction, root canal, cleaning) or any surgery, you MUST inform the dentist/surgeon that you are on Aspirin and Clopidogrel (blood thinners). They may need to take special precautions to control bleeding. Do NOT stop your blood thinners without consulting Dr. Srinivas Rao first. Usually, minor dental procedures can be done while on blood thinners. For major surgeries, Dr. Rao will advise whether to temporarily adjust your medicines.",
       "tags": ["dental", "dentist", "surgery", "tooth", "extraction", "blood thinner", "procedure"]
+    },
+    {
+      "id": "MED-WARN-001",
+      "category": "medication_warning",
+      "priority": "critical",
+      "title": "Strict Warning: Avoid OTC Painkillers (NSAIDs)",
+      "content": "Never take NSAID painkillers such as Ibuprofen (Brufen, Combiflam), Diclofenac (Voveran), or Naproxen without doctor approval. These medications interfere with your blood thinners (Aspirin/Clopidogrel), dramatically increase internal stomach bleeding, and raise heart attack risk after stent surgery. If you experience headache or body aches, plain Paracetamol (Dolo 650 / Calpol 500) is the safe choice. Limit to maximum 2-3 tablets in 24 hours.",
+      "tags": ["painkiller", "nsaid", "brufen", "combiflam", "voveran", "ibuprofen", "paracetamol", "dolo", "warning"]
+    },
+    {
+      "id": "WOUND-004",
+      "category": "wound_care",
+      "priority": "high",
+      "title": "Radial Artery (Wrist) Puncture Site Care",
+      "content": "Your catheter was inserted through your right wrist radial artery. 1) Keep the wrist puncture site clean and completely dry for 48 hours. 2) Do not lift objects heavier than 2 kg with this arm for 5 to 7 days. 3) Avoid twisting your wrist, pushing heavy doors, or leaning heavily on that hand. 4) Mild bruising and slight soreness are normal. Seek immediate help if you notice rapidly expanding swelling, severe pain, active spurting blood, or your fingers become cold, pale, or numb.",
+      "tags": ["wrist", "radial", "puncture site", "wound", "swelling", "arm lifting", "numbness"]
+    },
+    {
+      "id": "WOUND-005",
+      "category": "wound_care",
+      "priority": "critical",
+      "title": "Femoral Artery (Groin) Site Care & Complications",
+      "content": "If access was via the groin (femoral artery): 1) Avoid squatting, using Indian-style toilets, or climbing multiple stairs for the first 7 days. 2) Support your groin with your hand when coughing or sneezing. 3) Inspect daily for any hard marble-like lump, warm red swelling, or bruising spreading down the thigh. 4) If sudden bleeding occurs, immediately lie completely flat, press firmly directly on the puncture site with a clean towel, and have family call 108 ambulance right away.",
+      "tags": ["groin", "femoral", "puncture", "hematoma", "bleeding", "squatting", "toilet", "swelling"]
+    },
+    {
+      "id": "EMERG-002",
+      "category": "emergency",
+      "priority": "critical",
+      "title": "How to Use Sorbitrate (Sublingual Nitroglycerin)",
+      "content": "Keep Sorbitrate (Isosorbide Dinitrate 5mg or 10mg) with you everywhere in your pocket. If sudden chest tightness, heaviness, or burning occurs: 1) Immediately SIT DOWN (do NOT stand as it can cause sudden low BP and fainting). 2) Place 1 Sorbitrate tablet under your tongue; do NOT swallow it. Let it dissolve. 3) Rest for 5 minutes. 4) If chest pain is not relieved after 5 minutes, take a second tablet under tongue and immediately have someone call 108 ambulance or drive to the nearest hospital ER.",
+      "tags": ["sorbitrate", "nitroglycerin", "emergency", "chest pain", "under tongue", "sublingual", "angina"]
+    },
+    {
+      "id": "TRAVEL-002",
+      "category": "activity",
+      "priority": "medium",
+      "title": "Air Travel and Long Journey Guidelines",
+      "content": "Air travel is generally safe 10 to 14 days after an uncomplicated angioplasty, provided you have no chest pain or shortness of breath. Essential flight guidelines: 1) Always carry your stent implant card and all cardiac medicines in your cabin handbag, never in checked luggage. 2) Drink plenty of water during the flight to avoid blood thickening. 3) Do not sit immobile for over 2 hours; do gentle ankle pumps and walk the cabin aisle. 4) Request wheelchair assistance at airports to avoid lifting heavy trolley bags.",
+      "tags": ["flight", "plane", "travel", "flying", "journey", "stent card", "cabin bag", "walking"]
+    },
+    {
+      "id": "DIET-008",
+      "category": "diet",
+      "priority": "high",
+      "title": "Sodium and Salt Intake Restriction",
+      "content": "Keep total daily salt consumption under 1 level teaspoon (less than 2000mg sodium) across all daily meals. Strict rules: 1) Do not add table salt on top of cooked food, salads, or curd. 2) Avoid high-sodium foods: commercial pickles (achaar), papad, packaged chips, bakery biscuits, canned soups, soy sauce, and processed snacks. 3) Use lemon juice, jeera (cumin), garlic, ginger, and fresh herbs to flavor food without raising blood pressure.",
+      "tags": ["salt", "sodium", "blood pressure", "pickles", "achaar", "papad", "diet restrictions"]
+    },
+    {
+      "id": "DIET-009",
+      "category": "diet",
+      "priority": "medium",
+      "title": "Tea, Coffee, and Caffeine Guidelines",
+      "content": "You may have 1 to 2 small cups (100-150ml) of light tea or coffee per day. Rules: 1) Avoid strong black coffee, double espresso, or energy drinks (Red Bull, Monster) as excess caffeine triggers palpitations, rapid heart rate, and spikes in blood pressure. 2) Drink tea with low-fat skimmed milk and minimal sugar. 3) Green tea or caffeine-free herbal teas (chamomile, tulsi) are heart-friendly alternatives. Avoid caffeine within 4 hours of bedtime.",
+      "tags": ["tea", "coffee", "caffeine", "palpitations", "chai", "green tea", "beverages"]
+    },
+    {
+      "id": "EMOT-001",
+      "category": "emotional_health",
+      "priority": "medium",
+      "title": "Post-Angioplasty Anxiety, Sleep, and Mood Recovery",
+      "content": "Feeling anxious, fearful about heart sensations, or tearful is very common in 30-40% of patients following a cardiac stent. 1) Every twitch or muscle ache in the chest is NOT a heart attack; musculoskeletal chest wall soreness from catheterization is very common. 2) Practice 10 minutes of slow 4-7-8 diaphragmatic breathing morning and evening. 3) Sleep on your back or right side with a comfortable pillow; avoid lying flat on your stomach. 4) If anxiety or sadness lasts more than 2 weeks, inform Dr. Rao for cardiac counseling.",
+      "tags": ["anxiety", "depression", "fear", "sleep", "stress", "relaxation", "breathing", "mental health"]
+    },
+    {
+      "id": "ACT-007",
+      "category": "activity",
+      "priority": "high",
+      "title": "Resuming Intimacy and Sexual Activity",
+      "content": "Sexual activity can usually be safely resumed 2 to 4 weeks post-procedure, once you are able to briskly climb two flights of stairs or walk 1 km comfortably without chest pain, shortness of breath, or dizziness. CRITICAL WARNING: If you use Sorbitrate or any nitrate medications, you MUST NEVER take erectile dysfunction drugs such as Sildenafil (Viagra), Tadalafil, or Vardenafil. Combining nitrates with these drugs can cause a catastrophic, life-threatening drop in blood pressure.",
+      "tags": ["sexual activity", "intimacy", "viagra", "sildenafil", "tadalafil", "sorbitrate warning", "stairs"]
+    },
+    {
+      "id": "DAILY-002",
+      "category": "lifestyle",
+      "priority": "medium",
+      "title": "Extreme Weather Precautions (Hot & Cold Seasons)",
+      "content": "1) Winter/Cold Weather: Cold air causes blood vessels to constrict, elevating blood pressure and increasing heart workload. Do not go for early morning walks when it is chilly or foggy (before 7:30 AM). Dress in warm thermal layers. 2) Summer/Heat: High temperatures lead to excessive dehydration, blood thickening, and sudden blood pressure drops. Walk only during cool morning or evening hours and carry water with you.",
+      "tags": ["weather", "winter", "summer", "cold", "heat", "morning walk", "temperature", "dehydration"]
+    },
+    {
+      "id": "DIET-010",
+      "category": "diet",
+      "priority": "high",
+      "title": "Heart-Healthy Cooking Oils & Fat Choices",
+      "content": "Restrict total cooking oil to 3 to 4 teaspoons (15-20 ml) per person per day. Best cooking oils: Mustard oil (cold-pressed), Rice bran oil, Sesame oil, or pure Olive oil for salads/light sauteing. Strictly avoid: Dalda, Vanaspati, Margarine, Palm oil, re-used frying oil, and deep-fried snacks (samosas, pakodas, puri) which contain dangerous trans-fats that clog stents.",
+      "tags": ["oil", "cooking oil", "mustard oil", "olive oil", "dalda", "trans fat", "fried food"]
+    },
+    {
+      "id": "MED-009",
+      "category": "medication",
+      "priority": "high",
+      "title": "Managing Minor Bleeding, Bruises, and Nosebleeds",
+      "content": "Because you take Aspirin and Clopidogrel, blood takes longer to clot. 1) Minor razor cuts or small scrapes: Apply firm direct pressure with clean gauze for 5 to 10 full minutes without peeking. 2) Nosebleed: Sit upright, lean slightly forward (do NOT tilt head back), and pinch the soft part of your nose firmly for 10 minutes. 3) Use an ultra-soft toothbrush to protect gums. 4) Contact doctor immediately if you notice black tarry stools, red urine, vomiting blood, or sudden large spontaneous hematomas.",
+      "tags": ["bleeding", "nosebleed", "cuts", "bruises", "blood thinner", "gums", "stool", "urine"]
     }
   ]
 }
+
