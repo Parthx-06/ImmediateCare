@@ -26,3 +26,8 @@ memory/*.json
 *.swo
 .DS_Store
 Thumbs.db
+
+# Logs & debug
+*.log
+error_log.txt
+

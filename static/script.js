@@ -224,7 +224,7 @@ async function sendMessage() {
         } catch (jsonErr) {
             console.error('Non-JSON server response:', textResponse);
             typingEl.remove();
-            appendMessage('assistant', `⚠️ Server returned an error (${res.status}). Please check Render logs.`);
+            appendMessage('assistant', `⚠️ Server returned an error (${res.status}). Please check server console or logs.`);
             return;
         }
 

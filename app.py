@@ -5,7 +5,27 @@ Provides a RAG pipeline using ChromaDB + Groq LLM for post-angioplasty patient c
 
 import json
 import os
+import sys
 from datetime import datetime
+
+# Fix Windows cp1252 encoding issues with emoji/unicode in print/logs
+def safe_print(*args, **kwargs):
+    """Print that NEVER crashes, regardless of encoding or stream availability."""
+    try:
+        msg = " ".join(str(a) for a in args) + "\n"
+        try:
+            # Try writing directly to buffer (bypasses text codec)
+            sys.stdout.buffer.write(msg.encode("utf-8", errors="replace"))
+            sys.stdout.buffer.flush()
+        except Exception:
+            try:
+                # Fallback: encode to ASCII with replacement
+                sys.stdout.write(msg.encode("ascii", errors="replace").decode("ascii"))
+                sys.stdout.flush()
+            except Exception:
+                pass  # Completely silent fallback
+    except Exception:
+        pass
 
 from flask import Flask, jsonify, render_template, request
 from flask_cors import CORS
@@ -207,7 +227,7 @@ def retrieve_context(query: str, n_results: int = 5) -> list:
         try:
             return medical_retriever.query(query, n_results=n_results)
         except Exception as e:
-            print(f"[WARN] MedicalRetriever query failed: {e}")
+            safe_print(f"[WARN] MedicalRetriever query failed: {e}")
 
     if collection is not None:
         try:
@@ -226,7 +246,7 @@ def retrieve_context(query: str, n_results: int = 5) -> list:
                 })
             return docs
         except Exception as e:
-            print(f"[WARN] ChromaDB query failed: {e}")
+            safe_print(f"[WARN] ChromaDB query failed: {e}")
 
     return []
 
@@ -241,9 +261,9 @@ def generate_response(query: str) -> dict:
             try:
                 from groq import Groq
                 groq_client = Groq(api_key=api_key)
-                print("[OK] Groq client initialized on demand from environment variable")
+                safe_print("[OK] Groq client initialized on demand from environment variable")
             except Exception as e:
-                print(f"[ERROR] Failed to init Groq client: {e}")
+                safe_print(f"[ERROR] Failed to init Groq client: {e}")
 
     if groq_client is None:
         return {
@@ -275,7 +295,7 @@ def generate_response(query: str) -> dict:
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": query}
             ],
-            model="llama-3.3-70b-versatile",
+            model="openai/gpt-oss-120b",
             temperature=0.3,
             max_tokens=1024,
             top_p=0.9
@@ -298,7 +318,7 @@ def generate_response(query: str) -> dict:
         try:
             add_to_memory(PATIENT_ID, query, response_text, [s["id"] for s in sources])
         except Exception as mem_err:
-            print(f"[WARN] Failed to save memory: {mem_err}")
+            safe_print(f"[WARN] Failed to save memory: {mem_err}")
 
         return {
             "response": response_text,
@@ -307,12 +327,30 @@ def generate_response(query: str) -> dict:
         }
 
     except Exception as e:
-        print(f"[ERROR] RAG Pipeline exception: {e}")
+        safe_print(f"[ERROR] RAG Pipeline exception: {e}")
         return {
             "response": f"⚠️ Server Error processing request: {str(e)}",
             "sources": [],
             "error": True
         }
+
+
+# ─── Global Error Handler ────────────────────────────────────────────────────────
+
+import traceback as _traceback
+
+@app.errorhandler(Exception)
+def handle_exception(e):
+    """Catch all unhandled exceptions, log to file, return JSON."""
+    tb = _traceback.format_exc()
+    try:
+        log_path = os.path.join(BASE_DIR, "error_log.txt")
+        with open(log_path, "a", encoding="utf-8") as f:
+            f.write(f"\n{'='*60}\n{datetime.now().isoformat()}\n{tb}\n")
+    except Exception:
+        pass
+    safe_print(f"[UNHANDLED ERROR] {tb[:300]}")
+    return jsonify({"response": f"Server error: {str(e)}", "sources": [], "error": True}), 500
 
 
 # ─── API Routes ──────────────────────────────────────────────────────────────────
@@ -345,19 +383,31 @@ def health():
 @app.route("/api/chat", methods=["POST"])
 def chat():
     """Main RAG chat endpoint."""
-    data = request.get_json()
-    query = data.get("query", "").strip()
+    try:
+        data = request.get_json()
+        query = data.get("query", "").strip()
 
-    if not query:
-        return jsonify({"error": "Query cannot be empty"}), 400
+        if not query:
+            return jsonify({"error": "Query cannot be empty"}), 400
 
-    print(f"[CHAT] Query: {query[:100]}...")
-    result = generate_response(query)
-    if result.get("error"):
-        print(f"[CHAT ERROR] {result['response']}")
-    else:
-        print(f"[CHAT OK] Response length: {len(result['response'])} chars")
-    return jsonify(result)
+        safe_print(f"[CHAT] Query: {query[:100]}...")
+        result = generate_response(query)
+        if result.get("error"):
+            safe_print(f"[CHAT ERROR] {str(result.get('response', ''))[:100]}")
+        else:
+            safe_print(f"[CHAT OK] Response length: {len(result['response'])} chars")
+        return jsonify(result)
+    except Exception as exc:
+        import traceback
+        tb = traceback.format_exc()
+        log_path = os.path.join(BASE_DIR, "error_log.txt")
+        try:
+            with open(log_path, "a", encoding="utf-8") as f:
+                f.write(f"\n{'='*60}\n{datetime.now().isoformat()}\n{tb}\n")
+        except Exception:
+            pass
+        return jsonify({"response": f"Server error: {str(exc)}", "sources": [], "error": True}), 500
+
 
 
 @app.route("/api/patient", methods=["GET"])
@@ -398,7 +448,7 @@ def set_api_key():
         # Test the key with a simple request
         groq_client.chat.completions.create(
             messages=[{"role": "user", "content": "test"}],
-            model="llama-3.3-70b-versatile",
+            model="openai/gpt-oss-120b",
             max_tokens=5
         )
         os.environ["GROQ_API_KEY"] = api_key
